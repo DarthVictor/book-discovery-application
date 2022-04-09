@@ -1,0 +1,23 @@
+.BookPage {
+    display: flex;
+    margin: 2em 4em;
+}
+
+div.BookPage-img {
+    width: 140px;
+    margin-right: 2em;
+    flex-shrink: 0;
+}
+
+p.BookPage-link {
+    margin-top: 1.5em;
+}
+
+.BookPage-content {
+    flex-shrink: 0;
+    width: calc(100% - 200px);
+}
+
+.BookPage-content > span {
+    margin-bottom: 1em;
+}

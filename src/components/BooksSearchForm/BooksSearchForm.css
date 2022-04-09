@@ -1,0 +1,9 @@
+.BooksSearchForm-form {
+    display: flex;
+    margin: 3em 0;
+}
+
+div.BooksSearchForm-search {
+    margin-right: 1em;
+    flex-grow: 1;
+}

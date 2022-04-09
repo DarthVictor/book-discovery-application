@@ -1,0 +1,38 @@
+.BooksList-error {
+    display: flex;
+    color: crimson;
+    align-items: center;
+}
+
+.BooksList-error-desc {
+    margin-left: 2em;
+    font-size: 1.5em;
+}
+
+.BooksList-not-fount {
+    font-size: 1.5em;
+}
+
+.Book {
+    display: flex;
+    margin-bottom: 2em;
+}
+
+div.Book-img {
+    width: 140px;
+    margin-right: 2em;
+    flex-shrink: 0;
+}
+
+p.Book-link {
+    margin-top: 1.5em;
+}
+
+.Book-content {
+    flex-shrink: 0;
+    width: calc(100% - 200px);
+}
+
+.Book-content > span {
+    margin-bottom: 1em;
+}
