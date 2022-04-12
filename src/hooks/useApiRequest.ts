@@ -21,25 +21,29 @@ export function useApiRequest<T>(url: string) {
                     headers: { ...DEFAULT_HEADERS, ...getAuthHeaders() },
                     signal: abortController.signal,
                 });
-                const json = await response.json();
-                if (response.ok) {
-                    setData(json);
+                if (!abortController.signal.aborted) {
+                    const json = await response.json();
+                    if (response.ok) {
+                        setData(json);
+                    } else {
+                        setData(null);
+                        setError(json.message);
+                        if (response.status === 401) {
+                            logout();
+                            navigate(
+                                `/auth?next=${
+                                    location.pathname + (location.search ?? "")
+                                }`
+                            );
+                        }
+                    }
+                    setLoading(false);
                 } else {
                     setData(null);
-                    setError(json.message);
-                    if (response.status === 401) {
-                        logout();
-                        navigate(
-                            `/auth?next=${
-                                location.pathname + (location.search ?? "")
-                            }`
-                        );
-                    }
                 }
             } catch {
                 setData(null);
                 setError("Network error.");
-            } finally {
                 setLoading(false);
             }
         };
